@@ -2,15 +2,13 @@
 
 var _express = _interopRequireDefault(require("express"));
 
-var _path = _interopRequireDefault(require("path"));
-
 var _cookieParser = _interopRequireDefault(require("cookie-parser"));
 
 var _morgan = _interopRequireDefault(require("morgan"));
 
 var _routes = _interopRequireDefault(require("./routes"));
 
-var _users = _interopRequireDefault(require("./routes/users"));
+var _animals = _interopRequireDefault(require("./routes/animals"));
 
 var _http = require("http");
 
@@ -32,7 +30,7 @@ app.use(_express["default"].urlencoded({
 app.use((0, _cookieParser["default"])());
 (0, _connection.initializeMongoose)();
 app.use('/', _routes["default"]);
-app.use('/users', _users["default"]);
+app.use('/animal', _animals["default"]);
 var server = (0, _http.createServer)(app);
 server.listen(_env.port, '0.0.0.0');
 server.on('listening', function () {

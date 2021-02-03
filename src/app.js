@@ -2,7 +2,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import indexRouter from "./routes";
-import usersRouter from "./routes/users";
+import animalRouter from "./routes/animals";
 import {createServer} from "http";
 import {port} from "./env";
 import cors from "cors";
@@ -19,7 +19,7 @@ app.use(cookieParser());
 initializeMongoose();
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/animal', animalRouter);
 
 const server = createServer(app);
 
